@@ -8,12 +8,16 @@
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
+		"bench": "node ./benchmark/index.js",
 		"format": "prettier --write .",
 		"test": "node --test"
 	},
 	"devDependencies": {
 		"@hyperz111/prettier-config": "^1.1.0",
-		"prettier": "^3.8.3"
+		"front-matter": "^4.0.2",
+		"gray-matter": "^4.0.3",
+		"prettier": "^3.8.3",
+		"tinybench": "^6.0.2"
 	},
 	"packageManager": "pnpm@10.15.0"
 }
