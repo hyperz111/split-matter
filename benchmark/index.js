@@ -36,11 +36,9 @@ const libraries = [
 		},
 	],
 ];
-const time = 100;
 
 for (const fixture of fixtures) {
-	const { name } = path.parse(fixture);
-	const bench = new Bench({ name, time });
+	const bench = new Bench({ name: path.parse(fixture).name });
 	const content = fs.readFileSync(path.join(fixturesPath, fixture), "utf8");
 
 	for (const [library, fn] of libraries) {
