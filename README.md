@@ -2,9 +2,9 @@
 
 Low-level front-matter extractor.
 
-Useful when you need to separate the front-matter and the content in the raw format.
-This package is NOT parse front-matter to YAML format by default. So, You need to parse
-the front-matter by yourself.
+Useful when you need to separate a front-matter and a content in the raw format. This package is **NOT**
+strip a [BOM](http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8) and parse front-matter to [YAML](https://yaml.org/)
+format by default. So, You need to parse front-matter by yourself.
 
 ## Install
 
