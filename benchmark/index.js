@@ -37,12 +37,14 @@ const libraries = [
 	],
 ];
 
+let salt = 0;
+
 for (const fixture of fixtures) {
-	const bench = new Bench({ name: path.parse(fixture).name });
+	const bench = new Bench({ name: path.parse(fixture).name, throws: true });
 	const content = fs.readFileSync(path.join(fixturesPath, fixture), "utf8");
 
 	for (const [library, fn] of libraries) {
-		bench.add(library, () => fn(`${content}${Math.random()}`));
+		bench.add(library, () => fn(`${content}${salt++}`));
 	}
 
 	suites.push(bench);
