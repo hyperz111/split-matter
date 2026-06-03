@@ -55,20 +55,28 @@ const results = await Promise.all(
 		await suite.run();
 		return {
 			file: suite.name,
-			libraries: Object.fromEntries(
-				suite.tasks.map((task) => [
-					task.name,
-					{
-						throughput: {
-							p50: Math.round(task.result.throughput.p50),
-							mad: Math.round(task.result.throughput.mad),
-						},
-						samples: task.result.latency.samplesCount,
-					},
-				]),
-			),
+			libraries: suite.tasks.map((task) => ({
+				name: task.name,
+				throughput: {
+					p50: Math.round(task.result.throughput.p50),
+					mad: Math.round(task.result.throughput.mad),
+				},
+				samples: task.result.latency.samplesCount,
+			})),
 		};
 	}),
 );
 
-fs.writeFileSync("result.json", JSON.stringify(results, null, 2));
+let markdown = "# Benchmarks\n\n> This benchmark is using different content (salted) in every iterations.\n\n";
+
+for (const result of results) {
+	markdown += `## ${result.file}\n\n\`\`\`text\n`;
+
+	for (const library of result.libraries) {
+		markdown += `${library.name} × ${library.throughput.p50.toLocaleString("en")} ops/sec ±${library.throughput.mad.toLocaleString("en")}% (${library.samples} runs sampled)\n`;
+	}
+
+	markdown += "```\n\n";
+}
+
+fs.writeFileSync(path.resolve(import.meta.dirname, "result.md"), markdown);
