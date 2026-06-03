@@ -44,7 +44,7 @@ for (const fixture of fixtures) {
 	const content = fs.readFileSync(path.join(fixturesPath, fixture), "utf8");
 
 	for (const [library, fn] of libraries) {
-		bench.add(library, () => fn(content));
+		bench.add(library, () => fn(`${content}${Math.random()}`));
 	}
 
 	suites.push(bench);
