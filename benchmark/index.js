@@ -1,6 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
+
 import { Bench } from "tinybench";
+import YAML from "js-yaml";
+
 import front from "front-matter";
 import gray from "gray-matter";
 import raw from "../src/index.js";
@@ -11,7 +14,27 @@ const suites = [];
 const libraries = [
 	["front-matter", front],
 	["gray-matter", gray],
+	[
+		"gray-matter+yaml_disabled",
+		(input) =>
+			gray(input, {
+				engines: {
+					yaml: String,
+				},
+				language: "yaml",
+			}),
+	],
 	["raw-matter", raw],
+	[
+		"raw-matter+yaml",
+		(input) => {
+			const result = raw(input);
+			if (result.matter !== "") {
+				result.data = YAML.safeLoad(result.matter);
+			}
+			return result;
+		},
+	],
 ];
 const time = 100;
 
@@ -27,7 +50,6 @@ for (const fixture of fixtures) {
 	suites.push(bench);
 }
 
-console.time("bench");
 const results = await Promise.all(
 	suites.map(async (suite) => {
 		await suite.run();
@@ -48,6 +70,5 @@ const results = await Promise.all(
 		};
 	}),
 );
-console.timeEnd("bench");
 
-console.dir(results, { depth: null });
+fs.writeFileSync("result.json", JSON.stringify(results, null, 2));
