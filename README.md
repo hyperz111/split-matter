@@ -40,52 +40,23 @@ console.log(data);
 
 ## API
 
-### `parse(input: string, options?: ParseOptions): ParseResult`
+### `parse(input, options?)`
 
 Parse the string that contains front-matter and return the parsed object.
 
-### `ParseOptions` <sup>interface</sup>
+Parameters:
 
-```ts
-interface ParseOptions {
-	/**
-	 * Front-matter delimiter
-	 */
-	delimiter: string;
-	/**
-	 * Include excerpt or not?
-	 *
-	 * - `false`: don't include the excerpt
-	 * - `true`: include the excerpt that separated with {@link ParseOptions["delimiter"]}
-	 * - `string`: include the excerpt that separated with this string
-	 * - `Function`: function to control how the excerpt is parsed and added
-	 */
-	excerpt: boolean | string | ((file: ParseResult, options: ParseOptions) => void);
-}
-```
+- `input` **{String}**: Input string.
+- `[options]` **{Object}**: Parser options.
+  - `[delimiter]` **{String}**: Front-matter delimiter.
+  - `[excerpt]` **{Boolean|String|Function}**: Include excerpt or not?
 
-### `ParseResult` <sup>interface</sup>
+Returns: **{Object}**
 
-```ts
-interface ParseResult {
-	/**
-	 * Front-matter block string, You can parse this.
-	 */
-	matter: string;
-	/**
-	 * Input content under the front-matter.
-	 */
-	content: string;
-	/**
-	 * Original input string.
-	 */
-	original: string;
-	/**
-	 * Excerpt string.
-	 */
-	excerpt?: string;
-}
-```
+- `matter` **{String}**: Front-matter block string, You can parse this.
+- `content` **{String}**: Input content under the front-matter.
+- `original` **{String}**: Original input string.
+- `[excerpt]` **{String}**: Excerpt string.
 
 ## License
 
