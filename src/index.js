@@ -21,7 +21,7 @@ const parse = (input, options = {}) => {
 		// if the next character after the opening delimiter is
 		// a character from the delimiter, then it's not a front-
 		// matter delimiter
-		if (input[openLength] === open.slice(-1)) {
+		if (input[openLength] === open[openLength - 1]) {
 			return file;
 		}
 
