@@ -19,7 +19,9 @@ const libraries = [
 		(input) =>
 			gray(input, {
 				engines: {
-					yaml: String,
+					yaml: {
+						parse: String,
+					},
 				},
 				language: "yaml",
 			}),
@@ -58,8 +60,8 @@ const results = await Promise.all(
 			libraries: suite.tasks.map((task) => ({
 				name: task.name,
 				throughput: {
-					p50: Math.round(task.result.throughput.p50),
-					mad: Math.round(task.result.throughput.mad),
+					mean: task.result.throughput.mean,
+					rme: task.result.throughput.rme,
 				},
 				samples: task.result.latency.samplesCount,
 			})),
@@ -73,7 +75,7 @@ for (const result of results) {
 	markdown += `## ${result.file}\n\n\`\`\`text\n`;
 
 	for (const library of result.libraries) {
-		markdown += `${library.name} × ${library.throughput.p50.toLocaleString("en")} ops/sec ±${library.throughput.mad.toLocaleString("en")}% (${library.samples} runs sampled)\n`;
+		markdown += `${library.name} × ${Math.round(library.throughput.mean).toLocaleString("en")} ops/sec ±${library.throughput.rme.toFixed(2)}% (${library.samples.toLocaleString("en")} runs sampled)\n`;
 	}
 
 	markdown += "```\n\n";
