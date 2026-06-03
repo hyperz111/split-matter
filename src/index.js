@@ -62,6 +62,6 @@ const matter = (input, options = {}) => {
 	}
 
 	return file;
-}
+};
 
 export default matter;

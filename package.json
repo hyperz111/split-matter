@@ -1,14 +1,19 @@
 {
-  "name": "raw-matter",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "packageManager": "pnpm@10.15.0",
-  "type": "module"
+	"name": "raw-matter",
+	"version": "0.0.0",
+	"description": "",
+	"keywords": [],
+	"license": "MIT",
+	"author": "",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"format": "prettier --write .",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"devDependencies": {
+		"@hyperz111/prettier-config": "^1.1.0",
+		"prettier": "^3.8.3"
+	},
+	"packageManager": "pnpm@10.15.0"
 }
