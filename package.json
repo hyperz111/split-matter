@@ -9,7 +9,7 @@
 	"main": "index.js",
 	"scripts": {
 		"format": "prettier --write .",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "node --test"
 	},
 	"devDependencies": {
 		"@hyperz111/prettier-config": "^1.1.0",
