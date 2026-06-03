@@ -1,4 +1,4 @@
-const matter = (input, options = {}) => {
+const parse = (input, options = {}) => {
 	const file = {
 		matter: "",
 		content: input,
@@ -64,4 +64,4 @@ const matter = (input, options = {}) => {
 	return file;
 };
 
-export default matter;
+export default parse;
