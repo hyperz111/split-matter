@@ -1,6 +1,8 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 
+import { format } from "prettier";
+import prettierConfig from "../prettier.config.js";
 import { Bench } from "tinybench";
 import YAML from "js-yaml";
 
@@ -42,14 +44,21 @@ const libraries = [
 let salt = 0;
 
 for (const fixture of fixtures) {
-	const bench = new Bench({ name: path.parse(fixture).name, throws: true });
+	const start = Date.now();
+
+	const { name } = path.parse(fixture);
+	console.log(`[${name}]`, "Preparing...");
+
+	const bench = new Bench({ name, throws: true });
 	const content = fs.readFileSync(path.join(fixturesPath, fixture), "utf8");
 
 	for (const [library, fn] of libraries) {
 		bench.add(library, () => fn(`${content}${salt++}`));
 	}
 
+	console.log(`[${name}]`, "Benchmarking...");
 	await bench.run();
+	console.log(`[${name}]`, `Done in ${(Date.now() - start) / 1000}s`);
 
 	results.push({
 		file: bench.name,
@@ -76,6 +85,11 @@ for (const result of results) {
 	markdown += "```\n\n";
 }
 
-const destination = path.resolve(import.meta.dirname, "..", "docs", "benchmark.md");
+markdown = await format(markdown, {
+	...prettierConfig,
+	parser: "markdown",
+});
+
+const destination = path.resolve(import.meta.dirname, "result.md");
 fs.writeFileSync(destination, markdown);
 console.log(`Saved to ${destination}!`);

@@ -60,7 +60,7 @@ Returns: **{object}**
 
 ## Benchmark
 
-See `docs/benchmark.md` file in this repository.
+See `benchmark/result.md` file in this repository.
 You can update it manually by running `pnpm run bench`.
 
 ## Credits
