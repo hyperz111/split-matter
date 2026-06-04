@@ -26,7 +26,7 @@
 		"src"
 	],
 	"scripts": {
-		"bench": "node ./benchmark/index.js",
+		"bench": "node ./scripts/benchmark.js",
 		"check": "prettier --check .",
 		"format": "prettier --write .",
 		"prepare": "kagitin",

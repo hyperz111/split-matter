@@ -90,6 +90,6 @@ markdown = await format(markdown, {
 	parser: "markdown",
 });
 
-const destination = path.resolve(import.meta.dirname, "result.md");
+const destination = path.resolve(import.meta.dirname, "benchmark.md");
 fs.writeFileSync(destination, markdown);
 console.log(`Saved to ${destination}!`);
