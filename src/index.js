@@ -1,3 +1,5 @@
+/* @ts-self-types="./index.d.ts" */
+
 // From https://github.com/jonschlinkert/gray-matter
 
 export const parse = (input, options = {}) => {
