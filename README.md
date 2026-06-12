@@ -2,9 +2,7 @@
 
 Low-level front-matter extractor.
 
-Useful when you need to separate a front-matter and a content in the raw format. This package is **NOT**
-strip a [BOM](http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8) and parse front-matter to [YAML](https://yaml.org/)
-format by default. So, You need to parse front-matter by yourself.
+Useful when you **ONLY** need to separate a front-matter and a content as its string block.
 
 ## Install
 
@@ -67,6 +65,7 @@ You can update it manually by running `pnpm run bench`.
 ## Credits
 
 Thanks for [`gray-matter`](https://github.com/jonschlinkert/gray-matter), some codes are borrowed from them.
+I **ONLY** grab the content separation logic.
 
 ## License
 
