@@ -34,14 +34,15 @@
 	},
 	"devDependencies": {
 		"@hyperz111/prettier-config": "^1.1.0",
-		"@hyperz111/tsconfig": "^1.0.0",
+		"@hyperz111/tsconfig": "^2.0.2",
 		"@types/node": "^25.9.3",
 		"front-matter": "^4.0.2",
 		"gray-matter": "^4.0.3",
 		"js-yaml": "^3",
 		"kagitin": "^0.2.1",
 		"prettier": "^3.8.3",
-		"tinybench": "^6.0.2"
+		"tinybench": "^6.0.2",
+		"typescript": "^6.0.3"
 	},
 	"packageManager": "pnpm@10.15.0",
 	"kagitin": {
