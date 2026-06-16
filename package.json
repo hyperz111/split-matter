@@ -1,9 +1,10 @@
 {
-	"name": "raw-matter",
+	"name": "split-matter",
 	"version": "0.0.0",
 	"description": "Low-level front-matter extractor",
 	"keywords": [
 		"raw",
+		"split",
 		"low-level",
 		"front-matter",
 		"frontmatter",
@@ -12,7 +13,7 @@
 		"extract",
 		"extractor"
 	],
-	"repository": "hyperz111/raw-matter",
+	"repository": "hyperz111/split-matter",
 	"license": "MIT",
 	"author": "Hyper-Z11",
 	"type": "module",

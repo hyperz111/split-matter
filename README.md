@@ -1,4 +1,4 @@
-# raw-matter
+# split-matter
 
 Low-level front-matter extractor.
 
@@ -7,13 +7,13 @@ Useful when you **ONLY** need to separate a front-matter and a content as its st
 ## Install
 
 ```text
-npm install raw-matter
+npm install split-matter
 ```
 
 ## Usage
 
 ```js
-import { parse } from "raw-matter";
+import { parse } from "split-matter";
 // NOTE: this example is using js-yaml@3 (legacy)
 import yaml from "js-yaml";
 

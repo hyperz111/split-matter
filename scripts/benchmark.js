@@ -46,9 +46,9 @@ const libraries = [
 				language: "yaml",
 			}),
 	],
-	["raw-matter", raw],
+	["split-matter", raw],
 	[
-		"raw-matter+yaml",
+		"split-matter+yaml",
 		(input) => {
 			const result = raw(input);
 			if (result.matter !== "") {

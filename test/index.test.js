@@ -2,7 +2,7 @@ import { describe, test } from "node:test";
 import * as assert from "node:assert/strict";
 import { parse } from "../src/index.js";
 
-describe("raw-matter", () => {
+describe("split-matter", () => {
 	/**
 	 * @param {Array<string>} lines
 	 * @return {string}
