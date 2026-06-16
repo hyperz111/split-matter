@@ -52,7 +52,7 @@ export const parse = (input, options = {}) => {
 	}
 
 	if (typeof options.excerpt === "function") {
-		options.excerpt(file, options);
+		options.excerpt(file);
 	} else if (options.excerpt) {
 		const delimiter = typeof options.excerpt === "string" ? options.excerpt : open;
 
