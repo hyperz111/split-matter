@@ -30,7 +30,8 @@
 		"check": "prettier --check .",
 		"format": "prettier --write .",
 		"prepare": "kagitin",
-		"test": "node --test"
+		"test": "node --test",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@hyperz111/prettier-config": "^1.1.0",

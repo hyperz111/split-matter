@@ -26,7 +26,7 @@ export interface ParseOptions {
 	 * - `string`: include the excerpt that separated with this string
 	 * - `Function`: function to control how the excerpt is parsed and added
 	 */
-	excerpt: boolean | string | ((file: ParseResult, options: ParseOptions) => void);
+	excerpt: boolean | string | ((file: ParseResult, options: Partial<ParseOptions>) => void);
 }
 
 /**

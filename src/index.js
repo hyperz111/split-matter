@@ -1,8 +1,14 @@
-/* @ts-self-types="./index.d.ts" */
-
 // From https://github.com/jonschlinkert/gray-matter
+/** @import { ParseOptions, ParseResult } from "./index.js" */
 
+/**
+ * Parse the string that contains front-matter and return the parsed object.
+ * @param {string} input Input string
+ * @param {Partial<ParseOptions>} [options] Parser options
+ * @return {ParseResult} Result object
+ */
 export const parse = (input, options = {}) => {
+	/** @type {ParseResult} */
 	const file = {
 		matter: "",
 		content: input,
